@@ -2,4 +2,23 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #a600ff, #00cdff);
+  background-repeat: no-repeat;
+}
+body{
+  background-color: rgba(0, 0, 0, 0.409);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width:350px) {
+  #root{
+    padding:20px 0px !important;
+  }
 }

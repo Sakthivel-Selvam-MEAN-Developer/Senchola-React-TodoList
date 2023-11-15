@@ -1,0 +1,18 @@
+.add-todo{
+    width: 600px !important;
+}
+
+@media(max-width:620px){
+    .add-todo{
+        width: 270px !important;
+    }
+}
+
+@media (max-width:350px) {
+    ul{
+        margin:30px 0 20px 0 !important;
+    }
+    .add{
+        padding: 0 !important;
+    }
+}

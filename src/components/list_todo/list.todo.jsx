@@ -1,41 +1,29 @@
-import { useState } from 'react'
 import './list.todo.css'
 import DeleteSvg from '../../assets/delete-filled-svgrepo-com.svg'
 
-const TodoList = () => {
-
-    const [todoList, setTodoList] = useState([
-        {
-            id: 1,
-            chaecked: true,
-            todo: 'Do Code'
-        },
-        {
-            id: 2,
-            chaecked: false,
-            todo: 'Do Code 1'
-        },
-        {
-            id: 3,
-            chaecked: false,
-            todo: 'Do Code 2'
-        }
-    ])
+const TodoList = ({todoList, handleCheckChange, handleDelete}) => {
 
     return (
         <>
-            <ul>
-                {todoList.map(todo =>
+            {todoList.length ?
                 (
-                    <li>
-                        <input type="checkbox" checked = {todo.chaecked}/>
-                        <p>{todo.todo}</p>
-                        <img src={DeleteSvg} alt="" />
-                        
-                    </li>
+                    <ul className='container d-flex flex-column justify-content-between'>
+                        {todoList.map(todo =>
+                        (
+                            <li key={todo.id} className='d-flex rounded justify-content-between align-items-center'>
+                                <div className='d-flex align-items-center'>
+                                    <input type="checkbox" checked={todo.checked} onChange={() => handleCheckChange(todo.id)} />
+                                    <p className='text-white m-0 ps-4 pe-2'>{todo.todo}</p>
+                                </div>
+                                <img src={DeleteSvg} alt="delete-logo" onClick={() => handleDelete(todo.id)} type="button" width={25} />
+                            </li>
 
-                ))}
-            </ul>
+                        ))}
+                    </ul>
+                ) : (
+                    <p className='mt-5 text-white'>List is Empty...!</p>
+                )
+            }
         </>
     )
 }
